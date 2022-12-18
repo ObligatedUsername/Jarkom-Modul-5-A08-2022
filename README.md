@@ -9,14 +9,19 @@
 
 ## Topologi
 ![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/A.1.png)
- 
+
 ## Setelah subnetting
 ![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/A.2.png)
+
 ## VLSM 
 ### Tabel Subnet 
-### Tree
-### Tabel Lengkap Subnet
+![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/B.1.png)
 
+### Tree
+![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/B.2.png)
+
+### Tabel Lengkap Subnet
+![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/B.3.png)
  
 ### Routing
 #### Konfigurasi IP (Router)
@@ -107,31 +112,38 @@ iface eth0 inet static
 auto eth0
 iface eth0 inet dhcp
 ```
-Routing
-Strix:
+### Routing
+##### Strix:
+```
 route add -net 10.3.7.128 netmask 255.255.255.248 gw 10.3.7.146
 route add -net 10.3.7.0 netmask 255.255.255.128 gw 10.3.7.146
 route add -net 10.3.0.0 netmask 255.255.252.0 gw 10.3.7.146
 route add -net 10.3.6.0 netmask 255.255.255.0 gw 10.3.7.150
 route add -net 10.3.7.136 netmask 255.255.255.248 gw 10.3.7.150
 route add -net 10.3.4.0 netmask 255.255.254.0 gw 10.3.7.150
- 
-Westalis:
+```
+### Westalis:
+```
 route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.3.7.145
- 
-Ostania:
+```
+### Ostania:
+```
 route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.3.7.149
- 
-IP Dinamis Pada Client menggunakan DHCP Server
-WISE (DHCP Server):
+```
+
+### IP Dinamis Pada Client menggunakan DHCP Server
+##### WISE (DHCP Server):
+```
 - /etc/default/isc-dhcp-server
 Tambahkan INTERFACES=”eth0”
- 
+```
+```
 - /etc/dhcp/dhcpd.conf
 subnet 10.3.7.128 netmask 255.255.255.248 {
     	option routers 10.3.7.129;
 }
- 
+```
+```
 subnet 10.3.7.0 netmask 255.255.255.128 {
     	range 10.3.7.2 10.3.7.63;
     	option routers 10.3.7.1;
@@ -167,13 +179,15 @@ subnet 10.3.6.0 netmask 255.255.255.0 {
     	default-lease-time 600;
     	max-lease-time 7200;
 }
- 
-Westalis, Strix, & Ostania:
+```
+##### Westalis, Strix, & Ostania:
+```
 - /etc/default/isc-dhcp-relay
 Tambahkan SERVERS=”10.3.7.131” & INTERFACES”[Semua interface yang harus dihubungkan]”
-Misal untuk Westalis, INTERFACES=”eth0 eth1 eth2 eth3”, karena eth0 terhubung menuju router Strix yang juga terhubung dengan router Ostania yang terhubung dengan client” yang perlu dicapai DHCP Server, eth1 untuk mengarah kembali menuju DHCP Server, dan eth2 & eth3 terhubung dengan client.
+```
+Misal untuk Westalis, INTERFACES=”eth0 eth1 eth2 eth3”, karena eth0 terhubung menuju router Strix yang juga terhubung dengan router Ostania yang terhubung dengan client” yang perlu dicapai DHCP Server, eth1 untuk mengarah kembali menuju DHCP Server, dan eth2 & eth3 terhubung dengan client. <br/>
  
-Setelah menambahkan konfigurasi pada DHCP Server dan Relay, jangan lupa untuk restart menggunakan service isc-dhcp-(server | relay) restart.
+Setelah menambahkan konfigurasi pada DHCP Server dan Relay, jangan lupa untuk restart menggunakan ```service isc-dhcp-(server | relay) restart.``` <br/>
  
 Konfigurasi iptables keluar di Strix tanpa menggunakan MASQUERADE
 Konfigurasi network interface pada Strix:

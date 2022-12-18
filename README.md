@@ -8,10 +8,10 @@
 
 
 ## Topologi
-
+![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/A.1.png)
  
 ## Setelah subnetting
-
+![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/A.2.png)
 ## VLSM 
 ### Tabel Subnet 
 ### Tree

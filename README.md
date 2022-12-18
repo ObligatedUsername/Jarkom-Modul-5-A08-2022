@@ -10,6 +10,14 @@
 ## Topologi
 ![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/A.1.png)
 
+- Eden adalah DNS Server
+- WISE adalah DHCP Server
+- Garden dan SSS adalah Web Server
+- Jumlah Host pada Forger adalah 62 host
+- Jumlah Host pada Desmond adalah 700 host
+- Jumlah Host pada Blackbell adalah 255 host
+- Jumlah Host pada Briar adalah 200 host
+
 ## Setelah subnetting
 ![This is an image](https://github.com/ObligatedUsername/Jarkom-Modul-5-A08-2022/blob/master/assets/A.2.png)
 
